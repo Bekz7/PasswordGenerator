@@ -3,6 +3,8 @@ package pl.bekz.model;
 import java.util.Scanner;
 
 public class PasswordSetting {
+    private static final String REGEX = "\\w";
+
     private String passComponent;
     private int passLength;
 
@@ -14,19 +16,26 @@ public class PasswordSetting {
         return passLength;
     }
 
-    public void passwordCharacters() {
+    public void readSignsFromInput() {
         Scanner in = new Scanner( System.in );
-        this.passComponent = in.nextLine();
+        String input = in.nextLine();
 
-       toUpperCase();
+        if (isCharacters( input )) {
+            this.passComponent = input.toUpperCase();
+        } else {
+            throw new IllegalArgumentException( "Options is not an alphanumerical signs" );
+        }
     }
 
-    private void toUpperCase() {
-       this.passComponent = getPassComponent().toUpperCase();
+    private boolean isCharacters(String input) {
+//        return input.matches( REGEX ) ? true : false;
+        // TODO fix my pattern
+        return true;
     }
 
-    public void passwordLength() {
+    public void readPasswordLengthFromInput() {
         Scanner in = new Scanner( System.in );
         this.passLength = in.nextInt();
     }
+
 }

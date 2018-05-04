@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
-public class CopyToClipboard {
+public class AppClipboard {
     public void copyToClip(String password) {
         StringSelection stringSelection = new StringSelection( password );
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

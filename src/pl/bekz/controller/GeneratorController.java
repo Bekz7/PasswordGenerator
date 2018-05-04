@@ -1,35 +1,36 @@
 package pl.bekz.controller;
 
-import pl.bekz.model.CopyToClipboard;
+import pl.bekz.model.AppClipboard;
 import pl.bekz.model.PasswordSetting;
-import pl.bekz.model.imp.PasswordGenerator;
+import pl.bekz.model.impl.PasswordGenerator;
 import pl.bekz.view.GeneratorView;
 
 public class GeneratorController {
     private PasswordGenerator generator = new PasswordGenerator();
     private GeneratorView view = new GeneratorView();
-    private PasswordSetting set = new PasswordSetting();
-    private CopyToClipboard toClipboard = new CopyToClipboard();
+    private PasswordSetting settings = new PasswordSetting();
+
+    private AppClipboard clipboard = new AppClipboard();
 
     public void introduction() {
         view.showBanner();
     }
 
-    public void passwordCointon() {
+    public void choosePatternsForPassword() {
         view.showChosePassElements();
-        set.passwordCharacters();
+        settings.readSignsFromInput();
     }
 
-    public void passwordLength() {
+    public void choosePasswordLength() {
         view.showPasswordLength();
-        set.passwordLength();
+        settings.readPasswordLengthFromInput();
     }
 
     public void generatePassword() {
-        generator.generatePassword( set.getPassLength(), set.getPassComponent() );
+        generator.generatePassword( settings );
     }
 
     public void copyToClipboardPassword() {
-        toClipboard.copyToClip( generator.printPassword() );
+        clipboard.copyToClip( generator.printPassword() );
     }
 }

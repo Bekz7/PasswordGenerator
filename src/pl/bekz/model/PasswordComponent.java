@@ -1,8 +1,8 @@
 package pl.bekz.model;
 
 public interface PasswordComponent {
-    char symbol = 'S';
-    char lowercaseCharacter = 'L';
-    char uppercaseCharacter = 'U';
-    char number = 'N';
+    char SYMBOL = 'S';
+    char LOWERCASE_CHARACTER = 'L';
+    char UPPERCASE_CHARACTER = 'U';
+    char NUMBER = 'N';
 }

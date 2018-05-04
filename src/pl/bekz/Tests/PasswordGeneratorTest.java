@@ -33,17 +33,17 @@ public class PasswordGeneratorTest implements PasswordComponent {
         char letter = choice.charAt( randomNumberOfPasswordComponents );
 
         switch (letter) {
-            case symbol:
-                assertEquals( letter, symbol );
+            case SYMBOL:
+                assertEquals( letter, SYMBOL );
                 return;
-            case number:
-                assertEquals( letter, number );
+            case NUMBER:
+                assertEquals( letter, NUMBER );
                 return;
-            case uppercaseCharacter:
-                assertEquals( letter, uppercaseCharacter );
+            case UPPERCASE_CHARACTER:
+                assertEquals( letter, UPPERCASE_CHARACTER );
                 return;
-            case lowercaseCharacter:
-                assertEquals( letter, lowercaseCharacter );
+            case LOWERCASE_CHARACTER:
+                assertEquals( letter, LOWERCASE_CHARACTER );
                 return;
             default:
                 System.out.println( "Wrong choice" );
@@ -59,17 +59,17 @@ public class PasswordGeneratorTest implements PasswordComponent {
         char letter = choice.charAt( randomNumberOfPasswordComponents );
 
         switch (letter) {
-            case symbol:
-                assertEquals( letter, symbol );
+            case SYMBOL:
+                assertEquals( letter, SYMBOL );
                 return;
-            case number:
-                assertEquals( letter, number );
+            case NUMBER:
+                assertEquals( letter, NUMBER );
                 return;
-            case uppercaseCharacter:
-                assertEquals( letter, uppercaseCharacter );
+            case UPPERCASE_CHARACTER:
+                assertEquals( letter, UPPERCASE_CHARACTER );
                 return;
-            case lowercaseCharacter:
-                assertEquals( letter, lowercaseCharacter );
+            case LOWERCASE_CHARACTER:
+                assertEquals( letter, LOWERCASE_CHARACTER );
                 return;
             default:
                 System.out.println( "Wrong choice" );

@@ -8,14 +8,14 @@ public class PasswordGeneratorRunner {
     public static void main(String[] args) {
         GeneratorController controller = new GeneratorController();
 
-        //1. Introduction
+        //1. Sow introduction bannerz
         controller.introduction();
 
         //2. Choose what to include the password
-        controller.passwordCointon();
+        controller.choosePatternsForPassword();
 
         //3. Choose password length
-        controller.passwordLength();
+        controller.choosePasswordLength();
 
         //4.Generate password
         controller.generatePassword();

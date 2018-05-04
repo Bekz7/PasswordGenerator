@@ -1,7 +1,8 @@
-package pl.bekz.model.imp;
+package pl.bekz.model.impl;
 
 import pl.bekz.model.PasswordComponent;
 import pl.bekz.model.PasswordContent;
+import pl.bekz.model.PasswordSetting;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,34 +12,32 @@ import java.util.Random;
 public class PasswordGenerator extends PasswordContent implements PasswordComponent {
     private List<Character> passwordElementsList = new ArrayList<>();
 
-    public void generatePassword(int passLength, String passComponent) {
-        for (int i = 0; i < passLength; i++) {
-            singleSign( passComponent );
-            Collections.shuffle( passwordElementsList );
+    public void generatePassword(PasswordSetting setting) {
+        for (int i = 0; i < setting.getPassLength(); i++) {
+            singleSign( setting.getPassComponent() );
         }
+        Collections.shuffle( passwordElementsList );
     }
 
     private void singleSign(String passComponent) {
-        try {
+        if (passComponent != null) {
             switch (randomLetter( passComponent )) {
-                case symbol:
+                case SYMBOL:
                     passwordElementsList.add( drawSymbol() );
                     break;
-                case number:
+                case NUMBER:
                     passwordElementsList.add( drawNumber() );
                     break;
-                case uppercaseCharacter:
+                case UPPERCASE_CHARACTER:
                     passwordElementsList.add( drawUpperCaseChar() );
                     break;
-                case lowercaseCharacter:
+                case LOWERCASE_CHARACTER:
                     passwordElementsList.add( drawLowerCaseChar() );
                     break;
                 default:
                     System.out.println( "Wrong choice" );
                     System.exit( 0 );
             }
-        }catch (NullPointerException e){
-            System.out.println(e+ "");
         }
     }
 
